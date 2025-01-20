@@ -178,3 +178,52 @@ function uni(a: number | string) {
 }
 uni(5);
 uni("5");
+
+// INTERSECTION take both types ..
+
+{
+  let a: number & String; // its value is never reads..
+  //  overview of type and interfaces
+  type city = {
+    names: string;
+  };
+  type shop = {
+    location: string;
+    quantity: number;
+  };
+
+  type shopInCity = city & shop;
+
+  let b: shopInCity = {
+    // in here b belongs to type intersection
+    names: "karachi",
+    location: "tariq road",
+    quantity: 24,
+  }; // we created custom type inlcudes string and number
+}
+
+type studentsPersonalData = {
+  name: string;
+  address: string;
+  contact: number;
+  education: string;
+};
+type studentAcademyData = {
+  batch: string;
+  courses: string[];
+  IsPresent: boolean;
+  rollNo: number;
+};
+
+type studentInfo = studentsPersonalData & studentAcademyData;
+
+let value: studentInfo = {
+  name: "ali",
+  address: "karachi",
+  contact: 92300000,
+  education: "Bsc",
+  batch: "11",
+  courses: ["WMA", "React Native"],
+  IsPresent: true,
+  rollNo: 172909,
+};

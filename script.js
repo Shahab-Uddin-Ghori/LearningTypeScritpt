@@ -154,3 +154,23 @@ function uni(a) {
 }
 uni(5);
 uni("5");
+// INTERSECTION take both types ..
+{
+    var a_7; // its value is never reads..
+    var b_6 = {
+        // in here b belongs to type intersection
+        names: "karachi",
+        location: "tariq road",
+        quantity: 24,
+    }; // we created custom type inlcudes string and number
+}
+var value = {
+    name: "ali",
+    address: "karachi",
+    contact: 92300000,
+    education: "Bsc",
+    batch: "11",
+    courses: ["WMA", "React Native"],
+    IsPresent: true,
+    rollNo: 172909,
+};
