@@ -1,3 +1,7 @@
+// to compile ts code to js "tsc filename.ts"
+// to watch the changes auto "tsc script.ts --watch"
+// for global watch mode we create "tsc -- init"
+
 var arr = [1, 2, 3, 4];
 var arr2 = arr;
 arr2.pop();
@@ -109,3 +113,68 @@ Objects ko {} brackets me define kiya jata hai.
 Objects me flexibility hoti hai, lekin wo enums ki tarah automatically type-safe nahi hote.
 
 */
+
+// TYPE INFERENCE //automatically check type a/c value
+{
+  let a; //any type
+  let b = "string"; //string
+  let c = true; // boolean
+}
+
+// TYPE UNION and INTERSECTION
+
+// UNION
+{
+  let a: string | number;
+  a = 15;
+  a = "ali";
+  //   a= true // throw error bcz we use OR operator for UNION
+
+  let b: null | number[];
+  b = null;
+  // b=1 // throw error bcz of we use array num
+  b = [1, 2, 3];
+}
+
+// funfact
+{
+  let a: number;
+  // a. will show all methods of number but if we
+
+  let b: number | string;
+  // b. we can only see those methods which are common in both number and string...
+
+  // for check specfic
+
+  let c: number | string;
+  c = 25;
+  if (typeof c === "number") {
+    // c. will show all method if number
+  }
+  c = "ali";
+  if (typeof c === "string") {
+    // c.  all methods of string
+  }
+}
+
+// imp concept
+// practical example
+{
+  // let a: number | string;
+  // a = "ali";
+  // if (typeof a === "number") {
+  //   a.toFixed(2);
+  // } else if (typeof a === "string") {
+  //   a.toUpperCase();
+  // }
+}
+
+function uni(a: number | string) {
+  if (typeof a === "number") {
+    a.toFixed(2);
+  } else if (typeof a === "string") {
+    a.toUpperCase();
+  }
+}
+uni(5);
+uni("5");
